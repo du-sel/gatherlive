@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>	
+	
+	<!-- Alias 설정 -->
+	<typeAliases>
+		<typeAlias alias="member" type="com.seoul.gatherlive.biz.profile.MemberVO" />
+		<typeAlias alias="memberInst" type="com.seoul.gatherlive.biz.profile.MemberInstVO" />
+		<typeAlias alias="memberLoca" type="com.seoul.gatherlive.biz.profile.MemberLocaVO" />
+	</typeAliases>
+
+	<!-- Sql Mapper 설정-->
+	<mappers>
+		<mapper resource="mappings/profile-mapping.xml" />
+	</mappers>
+	
+</configuration>

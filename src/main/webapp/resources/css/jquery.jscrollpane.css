@@ -1,0 +1,140 @@
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+
+.jspContainer
+{
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane
+{
+	position: absolute;
+}
+
+.jspVerticalBar
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 16px;
+	height: 100%;
+	background: red;
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: red;
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap
+{
+	display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+
+/* 1. 트랙을 변경한다. */
+.jspTrack
+{
+	background: #fbebf3;           /* #dde에서 이것으로 변경 */
+	position: relative;
+}
+
+
+/* 2.스크롤 핸들 변경한다. */
+.jspDrag
+{
+	background: #D33682;             /* #bbd에서 이것으로 변경*/
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+
+
+/* 3.스크롤 화살표 배경색을 변경한다. */
+.jspArrow
+{
+	background: #50506d;  
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+}
+
+
+
+
+.jspArrow.jspDisabled
+{
+	cursor: default;
+	background: #999;     /* #80808d에서 이렇게 변경해봤다 */;
+}
+
+
+/* 4. 화살표의 배경이미지를 변경해보자 - .jspArrowUp, jspArrowDown 코드를 추가한다.  */
+.jspArrowUp{
+	background: #d6448b url("../images/arrows.png") 0 0 no-repeat;
+}
+.jspArrowDown{
+	background: #d6448b url("../images/arrows.png") 0 -16px no-repeat;
+}
+/* ********************************************************* */
+
+
+.jspVerticalBar .jspArrow
+{
+	height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+	margin: 0 -3px 0 0;
+}

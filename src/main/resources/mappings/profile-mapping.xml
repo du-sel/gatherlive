@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="profileMapping">
+
+	<resultMap id="memberResultMap" type="member">
+		<id property="member_id" 		column="member_id" />
+		<result property="mail" 		column="mail" />
+		<result property="password" 	column="password" />
+		<result property="user_name" 	column="user_name" />
+		<result property="cell" 		column="cell" />
+		<result property="gender" 		column="gender" />
+		<result property="birth" 		column="birth" />
+		<result property="open" 		column="open" />
+		<result property="pref_genre" 	column="pref_genre" />
+		<result property="pref_musician" column="pref_musician" />
+		<result property="pref_music" 	column="pref_music" />
+		<result property="pref_day" 	column="pref_day" />
+		<result property="pref_time" 	column="pref_time" />
+		<result property="hope" 		column="hope" />
+		<result property="introduce" 	column="introduce" />
+		<result property="join_date" 	column="join_date" />
+	</resultMap>
+		
+	<resultMap id="memberInstResultMap" type="memberInst">
+		<id property="member_id" 		column="member_id" />
+		<result property="inst_name" 	column="inst_name" />
+		<result property="inst_level" 	column="inst_level" />
+		<result property="inst_time" 	column="inst_time" />
+		<result property="inst_month" 	column="inst_month" />
+		<result property="inst_timeValue" column="inst_timeValue" />
+	</resultMap>
+	
+	<resultMap id="memberLocaResultMap" type="memberLoca">
+		<id property="member_id" 		column="member_id" />
+		<result property="g1" 			column="g1" />
+		<result property="g2" 			column="g2" />
+		<result property="g3" 			column="g3" />
+	</resultMap>
+	
+	
+	
+	<!-- mail로 특정회원 검색 -->
+	<select id="getMemberByMail" resultType="member">
+		SELECT * FROM member WHERE mail=#{mail}
+	</select>
+	
+	<!-- member 테이블에 등록 -->
+	<insert id="insertMember" parameterType="member">
+		INSERT INTO member
+			(mail, password, user_name, cell, gender, birth, open, 
+			 pref_genre, pref_musician, pref_music, pref_day, pref_time, 
+			 hope, introduce, join_date) 
+			VALUES 
+			(#{mail}, #{password}, #{user_name}, #{cell}, #{gender}, #{birth}, #{open}, 
+			 #{pref_genre}, #{pref_musician}, #{pref_music}, #{pref_day}, #{pref_time}, 
+			 #{hope}, #{introduce}, CURRENT_DATE())
+	</insert>
+	
+	<!-- 특정 회원 악기 리스트 검색 -->
+	<select id="getMyInst" parameterType="member" resultMap="memberInstResultMap">
+		SELECT * FROM my_inst WHERE member_id=#{member_id}
+	</select>
+	
+	<!-- 특정 회원 지역 리스트 검색 -->
+	<select id="getMyLoca" parameterType="member" resultMap="memberLocaResultMap">
+		SELECT * FROM member_loca WHERE member_id=#{member_id}
+	</select>
+	
+	<!-- 특정 회원 나이 검색 -->
+	<select id="getMemberAge" parameterType="member" resultType="String">
+		SELECT age FROM member_age WHERE member_id=#{member_id}
+	</select>
+	
+	
+	<!-- member 테이블 정보 변경 -->
+	<update id="updateMember" parameterType="member">
+		UPDATE member SET user_name=#{user_name}, birth=#{birth}, 
+				gender=#{gender}, cell=#{cell}, open=#{open},
+				pref_genre=#{pref_genre}, pref_musician=#{pref_musician}, 
+				pref_music=#{pref_music}, pref_day=#{pref_day}, 
+				pref_time=#{pref_time}, hope=#{hope},
+				introduce=#{introduce}, password=#{password}
+				WHERE member_id=#{member_id}
+	</update>
+	
+	
+	
+	
+	
+	<!-- 등록 -->
+<!-- 	<insert id="insertProfile" parameterType="member">
+		insert into board(seq, title, writer,content)
+			values((select seq from(select ifnull(max(seq),0)+1 as seq from board) tmp), #{title}, #{writer}, #{content})			
+	</insert> -->
+	
+	<!-- 수정 -->
+<!-- 	<update id="updateBoard">
+		update board set title=#{title}, content=#{content} where seq=#{seq}
+	</update> -->
+	
+	<!-- 삭제 :  -->
+<!-- 	<delete id="deleteBoard" >
+		delete from board where seq=#{seq}
+	</delete> -->
+	
+	
+	<!-- 전체검색 -->
+<!-- 	<select id="getBoardList" resultMap="memberResultMap">
+		select * from board order by seq desc
+	</select> -->
+	
+</mapper>
