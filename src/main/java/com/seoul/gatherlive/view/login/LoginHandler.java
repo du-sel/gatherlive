@@ -39,7 +39,8 @@ public class LoginHandler {
 		
 		// 해당 메일주소로 가입된 회원이 없을 때 
 		if(found.getUser_name() == null) {
-			return "referer:?error=noSuchMember";
+			throw new Exception("존재하지 않는 회원입니다");
+			//return "referer:?error=noSuchMember";
 		} else {
 			
 			// 회원은 있으나 비밀번호가 일치하지 않을 때 

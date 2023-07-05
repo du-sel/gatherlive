@@ -7,14 +7,14 @@
 
 
 
-	<main id="error_404" class="error">
+	<main id="error_default" class="error">
 		
 		<div class="inner">
 
 
 			<h2>페이지를 찾을 수 없습니다</h2>
 
-
+			<h5></h5>
 
 		</div>
 

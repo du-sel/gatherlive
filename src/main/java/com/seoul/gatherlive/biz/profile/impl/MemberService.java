@@ -2,6 +2,8 @@ package com.seoul.gatherlive.biz.profile.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +14,15 @@ import com.seoul.gatherlive.biz.profile.MemberVO;
 @Service("memberService")
 public class MemberService {
 	
+	private static final Logger logger = LoggerFactory.getLogger(MemberService.class);
+	
 	@Autowired
 	private MemberDAO memberDAO;
 
 	
 	// mail로 특정회원 SELECT
 	public MemberVO getMemberByMail(MemberVO vo) {
+		logger.info("logger test");
 		return memberDAO.getMemberByMail(vo);
 	}
 	

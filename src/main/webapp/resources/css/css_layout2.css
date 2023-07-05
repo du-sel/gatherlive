@@ -3202,3 +3202,26 @@ main {
 
 
 
+
+
+/*****************************************************************/
+/* 에러페이지 */
+
+#error_default .inner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* #error_default h2 {
+	display: flex;
+} */
+
+
+
+
+
+
+
+
+
+
