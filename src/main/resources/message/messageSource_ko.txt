@@ -1,0 +1,23 @@
+#common
+message.language.en=영어로 보기
+message.language.ko=한국어로 보기
+
+#header
+message.header.recruit=모집글로 찾기
+message.header.profile=프로필로 찾기
+message.header.login=로그인
+message.header.join=회원가입
+message.header.logout=로그아웃
+message.header.mypage=마이페이지
+
+#my_main.jsp
+message.my.title=마이 페이지
+message.my.age=나이
+message.my.cell=연락처
+message.my.gender=성별
+message.my.open=프로필 검색
+message.my.loca=지역
+message.my.inst=악기
+message.my.level=실력
+message.my.time=기간
+

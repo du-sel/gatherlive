@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +70,7 @@
 					</c:if>
 					<c:if test="${ ACCOUNT != null }">
 						<li><a href="/gatherlive/member/logout.do" class="nav_logout">로그아웃</a></li>
-						<li><a href="/gatherlive/my/main.do" class="nav_mypage">마이페이지</a></li>
+ 						<li><a href="/gatherlive/my/main.do" class="nav_mypage">마이페이지</a></li>
 					</c:if>
 				</ul>
 			</div>

@@ -11,20 +11,26 @@
 
 	const barFill = function() {
 
-		$('#bar_fill').animate( {
-			width: '33%'
-		}, 500, 'swing' );
+		$(()=> {
+			
+			$('#bar_fill').animate( {
+				width: '33%'
+			}, 500, 'swing' );
+		});
 
 	}
 	
 	
 	//disabled 해제 
 	const enable = function() {
+		console.log("enable 실행")
 		let frm = document.getElementsByName("join2");
+		console.log(frm)
 		
 		let dis = document.querySelectorAll("input:disabled");
 		
 		for(let d of dis) {
+			console.log(d);
 			d.disabled = false;
 		}
 		
@@ -74,7 +80,7 @@
 
 				<div class="input email">
 					<p class="must">E-mail</p>
-					<input type="text" name="email_v" value="${MAIL }" size="25" disabled>
+					<input type="text" name="mail" value="${MAIL }" size="25" disabled>
 				</div>
 
 				<div class="input pw" id="pw">
@@ -300,8 +306,11 @@
 				} 
 				
 
-				let frm = document.getElementsByName("join2");
-				frm[0].submit();
+				enable();
+				/* setTimeout(function() {
+					let frm = document.getElementsByName("join2");
+					frm[0].submit();
+				}, 100); */
 				
 					
 			});

@@ -38,23 +38,29 @@ public class InsertAccountHander {
 	
 	
 	@RequestMapping(value="/join/insertAccount.do", method=RequestMethod.POST)
-	public String insertAccount(MemberVO vo, MemberInstList instList, MemberLocaList locaList, HttpSession session) throws Exception {
+	public String insertAccount(MemberVO vo, MemberInstList instListObj, MemberLocaList locaListObj, HttpSession session) throws Exception {
 		
-		memberService.insertMember(vo);
+		MemberVO member = (MemberVO)session.getAttribute("MEMBER");
+		memberService.insertMember(member);
 
-		MemberVO last = memberService.getMemberByMail(vo);
-		session.setAttribute("MEMBER", last);
+		MemberVO last = memberService.getMemberByMail(member);
 		
-		for(int i = 0; i<instList.length; ) {
-			
+		// 방금 넣은 회원정보로 악기에 id 넣어주기
+		for(MemberInstVO inst : instListObj.getInstList()) {
+			inst.setMember_id(last.getMember_id());
 		}
 		
-		session.setAttribute("INSTLIST", instList);
-		session.setAttribute("LOCALIST", locaList);
-		//일단 저장만 해둠 
+		// 방금 넣은 회원정보로 지역에 id 넣어주기
+		for(MemberLocaVO loca : locaListObj.getLocaList()) {
+			loca.setMember_id(last.getMember_id());
+		}
+		
+		// 완성된 instList, locaList INSERT
+		// 나중에 쿼리문부터 만들어야됨
+		 
 		
 
-		return "redirect:../join/insertProfile.do";
+		return "redirect:../join/welcomeJoin.do";
 		
 		
 		

@@ -38,15 +38,15 @@ public class LoginHandler {
 		
 		
 		// 해당 메일주소로 가입된 회원이 없을 때 
-		if(found.getUser_name() == null) {
+		if(found == null) {
 			throw new Exception("존재하지 않는 회원입니다");
 			//return "referer:?error=noSuchMember";
 		} else {
 			
 			// 회원은 있으나 비밀번호가 일치하지 않을 때 
 			if(!found.getPassword().equals(vo.getPassword())) {
-				System.out.println("비밀번호가 일치하지 않음");
-				return "referer:?error=wrongPassword";
+				throw new Exception("비밀번호가 일치하지 않습니다");
+				//return "referer:?error=wrongPassword";
 			} else {
 				
 				// 로그인 성공 

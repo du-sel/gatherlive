@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
@@ -11,9 +12,19 @@
 		
 		<div class="inner">
 
+			<!-- 언어선택 버튼 -->
+			<div>
+				<a href="/gatherlive/my/main.do?lang=en">
+						<spring:message code="message.language.en"/>
+				</a>&nbsp;&nbsp;
+				<a href="/gatherlive/my/main.do?lang=ko">
+						<spring:message code="message.language.ko"/>
+				</a>
+			</div>
 
 			<div id="header_c">
-				<h1 id="header">마이 페이지</h1>
+				<!-- <h1 id="header">마이 페이지</h1> -->
+				<h1 id="header"><spring:message code="message.my.title"/></h1>
 			</div>
 
 
@@ -31,21 +42,26 @@
 					<div id="text">
 		
 						<ul id="info">
-							<li><h4>나이</h4>
+							<!-- <li><h4>나이</h4> -->
+							<li><h5><spring:message code="message.my.age"/></h5>
 								<c:if test="${MYPROFILE.AGE == null }"><p>비공개</p></c:if>
 								<c:if test="${MYPROFILE.AGE != null }"><p>${MYPROFILE.AGE }</p></c:if>
 							</li>
-							<li><h4>성별</h4> <p>${MYPROFILE.MEMBER.gender }</p></li>
-							<li><h4>연락처</h4>
+<%-- 							<li><h4>성별</h4> <p>${MYPROFILE.MEMBER.gender }</p></li> --%>
+							<li><h5><spring:message code="message.my.gender"/></h5> <p>${MYPROFILE.MEMBER.gender }</p></li>
+<!-- 							<li><h4>연락처</h4> -->
+							<li><h5><spring:message code="message.my.cell"/></h5>
 								<c:if test="${MYPROFILE.MEMBER.cell == null }"><p>비공개</p></c:if>
 								<c:if test="${MYPROFILE.MEMBER.cell != null }"><p>${MYPROFILE.MEMBER.cell }</p></c:if>
 							</li>
-							<li id="my_open"><h4>프로필 검색</h4> 
+<!-- 							<li id="my_open"><h4>프로필 검색</h4>  -->
+							<li id="my_open"><h5><spring:message code="message.my.open"/></h5> 
 								<c:if test="${MYPROFILE.MEMBER.open == 0 }"><p>비허용</p></c:if>
 								<c:if test="${MYPROFILE.MEMBER.open == 1 }"><p>허용</p></c:if>
 							</li>
 							<li id="my_loca">
-								<h4>지역</h4> 
+<!-- 								<h4>지역</h4>  -->
+								<h5><spring:message code="message.my.loca"/></h5> 
 								<div>
 									<c:forEach items="${MYPROFILE.LOCALIST }" var="loca" varStatus="status">
 										<p>${loca.g1 }
@@ -61,11 +77,14 @@
 						
 						<c:forEach items="${MYPROFILE.INSTLIST }" var="inst" varStatus="status">
 							<div class="my_inst">
-								<h5>악기 ${status.count }</h5>
+<%-- 								<h5>악기 ${status.count }</h5> --%>
+								<h5><spring:message code="message.my.inst"/> ${status.count }</h5>
 								<ul>
 									<li><h3>${inst.inst_name }</h3></li>
-									<li><span>실력</span>${inst.inst_level }</li>
-									<li><span>기간</span>${inst.inst_month }</li>
+<%-- 									<li><span>실력</span>${inst.inst_level }</li> --%>
+									<li><span><spring:message code="message.my.level"/></span>${inst.inst_level }</li>
+<%-- 									<li><span>기간</span>${inst.inst_month }</li> --%>
+									<li><span><spring:message code="message.my.time"/></span>${inst.inst_month }</li>
 								</ul>
 							</div>
 						</c:forEach>

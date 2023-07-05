@@ -1,7 +1,5 @@
 <%@page import="org.json.simple.JSONArray"%>
-<%@page import="DTO.Member_Loca"%>
-<%@page import="DTO.Member_Inst"%>
-<%@page import="DTO.Member"%>
+<%@page import="com.seoul.gatherlive.biz.profile.*"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

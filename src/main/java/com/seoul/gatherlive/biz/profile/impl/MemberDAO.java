@@ -19,6 +19,7 @@ public class MemberDAO {
 	
 	// mail로 특정회원 검색
 	public MemberVO getMemberByMail(MemberVO vo) {
+		System.out.println("MemberDAO - getMemberByMail() 실행");
 		return sqlSession.selectOne("profileMapping.getMemberByMail", vo);
 	}
 	
@@ -46,7 +47,19 @@ public class MemberDAO {
 	
 	// member 테이블에 UPDATE
 	public void updateMember(MemberVO vo) {
+		System.out.println("MemberDAO - updateMember() 실행");
 		sqlSession.update("profileMapping.updateMember", vo);
+	}
+	
+	
+	
+	// member 테이블에서 DELETE
+	public void deleteMember(MemberVO vo) {
+		System.out.println("MemberDAO - deleteMember() 실행");
+		sqlSession.delete("profileMapping.deleteMemberInst", vo);
+		//sqlSession.delete("profileMapping.deleteMemberLoca", vo);
+		// 참조테이블 막아두고 롤백되는지 확인하기
+		sqlSession.delete("profileMapping.deleteMember", vo);
 	}
 	
 	

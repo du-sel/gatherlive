@@ -1,7 +1,7 @@
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
-<%@page import="DTO.Member"%>
+<%@page import="com.seoul.gatherlive.biz.profile.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -31,8 +31,8 @@
 	
 	
 	
-	let dataInst = <%=(JSONArray)application.getAttribute("JSONINST") %>
-	let dataLoca = <%=(JSONArray)application.getAttribute("JSONLOCA") %>
+	let dataInst = <%=(JSONArray)session.getAttribute("JSONINST") %>
+	let dataLoca = <%=(JSONArray)session.getAttribute("JSONLOCA") %>
 
 
 	
@@ -235,7 +235,7 @@
 			</div>
 		
 		
-			<form name="join3" id="join3" action="../join/insert.do" method="post">
+			<form name="join3" id="join3" action="../join/insertAccount.do" method="post">
 				<!-- <input type="hidden" name="cmd" value="join4"> -->
 
 				<section id="inst1" class="inst">
@@ -243,10 +243,12 @@
 					<h2>악기</h2>
 
 					<div class="input">
+						<!-- 잠깐 앞페이지 disabled 풀리는거 테스트좀 -->
+						<h4>${MEMBER.mail }</h4>
 						<p class="must">어떤 악기를 연주하시나요?</p>
 						<select name="instrument_g1_1" id="instrument_g1" class="instrument_g1" onload="getFirstInst(this.name)" onchange="getSecondInst(this.options[selectedIndex].value, this.name)">
 							<option value="">-- 선택 안 함 --</option>
-							<% ArrayList<String> finalInst = (ArrayList)application.getAttribute("FINALINST");
+							<% ArrayList<String> finalInst = (ArrayList)session.getAttribute("FINALINST");
 							for(String key : finalInst) { 
 								if(key.equals("그 외")) continue;%>
 							<option value="<%=key %>"><%=key %></option>
@@ -330,7 +332,7 @@
 						<div class="sel location">
 							<select name="location_g1_1" id="location_g1" class='g1' onchange="getSecondLoca(this.options[selectedIndex].value, this.name)">
 								<option value="">-- 선택 안 함 --</option>
-								<% ArrayList<String> finalLoca = (ArrayList)application.getAttribute("FINALLOCA");
+								<% ArrayList<String> finalLoca = (ArrayList)session.getAttribute("FINALLOCA");
 								for(String key : finalLoca) { %>
 								<option value="<%=key %>"><%=key %></option>
 								<% } %>
@@ -443,7 +445,9 @@
 					
 					
 				<div class="flexbox">
-					<button id="btn_join_toNext" type="button">회원가입 완료</button>
+					<!-- <button id="btn_join_toNext" type="button">회원가입 완료</button> -->
+					<button id="btn_join_toNext" type="submit">회원가입 완료</button>
+					<!-- 잠시 임시가입을 위해 바로 submit 하도록 달아둠 -->
 				</div>
 
 			</form>
@@ -488,7 +492,7 @@
 		let img_c;
 
 		
-		img_c = document.querySelector("#main .img_c");
+		img_c = document.querySelector("main .img_c");
 		img_c.appendChild(img_join_3);
 
 
@@ -703,6 +707,7 @@
 			//필수항목 미입력시 진행 불가
 			$('#btn_join_toNext').on('click', function() {
 
+				/*
 				for(let inst of arrInst) {
 
 					//악기선택
@@ -750,7 +755,7 @@
 					}
 					
 				}
-
+				*/
 
 				//검색허용 선택 
 				

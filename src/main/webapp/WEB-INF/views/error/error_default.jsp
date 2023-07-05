@@ -14,7 +14,8 @@
 
 			<h2>페이지를 찾을 수 없습니다</h2>
 
-			<h5></h5>
+			<%-- <h5>${exception }</h5> --%>
+			<h5>${exception.message }</h5>
 
 		</div>
 

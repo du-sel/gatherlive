@@ -1,4 +1,4 @@
-<%@page import="DTO.Member_Loca"%>
+<%@page import="com.seoul.gatherlive.biz.profile.*"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="java.util.ArrayList"%>

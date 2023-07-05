@@ -3209,6 +3209,7 @@ main {
 
 #error_default .inner {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }

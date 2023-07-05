@@ -22,7 +22,7 @@ public class MemberService {
 	
 	// mail로 특정회원 SELECT
 	public MemberVO getMemberByMail(MemberVO vo) {
-		logger.info("logger test");
+		System.out.println("MemberService - getMemberByMail() 실행");
 		return memberDAO.getMemberByMail(vo);
 	}
 	
@@ -44,13 +44,21 @@ public class MemberService {
 	
 	// member 테이블에 INSERT
 	public void insertMember(MemberVO vo) {
-		memberDAO.getMemberByMail(vo);
+		memberDAO.insertMember(vo);
 	}
 	
 	
 	// member 테이블에 UPDATE
 	public void updateMember(MemberVO vo) {
+		System.out.println("MemberService - updateMember() 실행");
 		memberDAO.updateMember(vo);
+	}
+	
+	
+	// member 테이블에서 DELETE
+	public void deleteMember(MemberVO vo) {
+		System.out.println("MemberService - deleteMember() 실행");
+		memberDAO.deleteMember(vo);
 	}
 	
 	

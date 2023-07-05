@@ -85,28 +85,19 @@
 	
 	
 	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteMember">
+		DELETE FROM member WHERE member_id=#{member_id}
+	</delete>
+	<!-- 회원 탈퇴 (악기 삭제) -->
+	<delete id="deleteMemberInst">
+		DELETE FROM member_inst WHERE member_id=#{member_id}
+	</delete>
+	<!-- 회원 탈퇴 (지역 삭제) -->
+	<delete id="deleteMemberLoca">
+		DELETE FROM member_loca WHERE member_id=#{member_id}
+	</delete>
 	
-	
-	<!-- 등록 -->
-<!-- 	<insert id="insertProfile" parameterType="member">
-		insert into board(seq, title, writer,content)
-			values((select seq from(select ifnull(max(seq),0)+1 as seq from board) tmp), #{title}, #{writer}, #{content})			
-	</insert> -->
-	
-	<!-- 수정 -->
-<!-- 	<update id="updateBoard">
-		update board set title=#{title}, content=#{content} where seq=#{seq}
-	</update> -->
-	
-	<!-- 삭제 :  -->
-<!-- 	<delete id="deleteBoard" >
-		delete from board where seq=#{seq}
-	</delete> -->
-	
-	
-	<!-- 전체검색 -->
-<!-- 	<select id="getBoardList" resultMap="memberResultMap">
-		select * from board order by seq desc
-	</select> -->
+
 	
 </mapper>
