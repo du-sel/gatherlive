@@ -44,6 +44,7 @@ public class MemberService {
 	
 	// member 테이블에 INSERT
 	public void insertMember(MemberVO vo) {
+		System.out.println("MemberService - insertMember() 실행");
 		memberDAO.insertMember(vo);
 	}
 	

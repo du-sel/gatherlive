@@ -41,19 +41,24 @@ public class InsertAccountHander {
 	public String insertAccount(MemberVO vo, MemberInstList instListObj, MemberLocaList locaListObj, HttpSession session) throws Exception {
 		
 		MemberVO member = (MemberVO)session.getAttribute("MEMBER");
-		memberService.insertMember(member);
+		
+		try {
+			memberService.insertMember(member);			
+		} catch(Exception e) {
+			throw new Exception("중복된 이메일이 사용되었습니다");
+		}
 
 		MemberVO last = memberService.getMemberByMail(member);
 		
 		// 방금 넣은 회원정보로 악기에 id 넣어주기
-		for(MemberInstVO inst : instListObj.getInstList()) {
-			inst.setMember_id(last.getMember_id());
-		}
+//		for(MemberInstVO inst : instListObj.getInstList()) {
+//			inst.setMember_id(last.getMember_id());
+//		}
 		
 		// 방금 넣은 회원정보로 지역에 id 넣어주기
-		for(MemberLocaVO loca : locaListObj.getLocaList()) {
-			loca.setMember_id(last.getMember_id());
-		}
+//		for(MemberLocaVO loca : locaListObj.getLocaList()) {
+//			loca.setMember_id(last.getMember_id());
+//		}
 		
 		// 완성된 instList, locaList INSERT
 		// 나중에 쿼리문부터 만들어야됨

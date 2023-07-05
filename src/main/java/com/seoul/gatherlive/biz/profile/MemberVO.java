@@ -1,5 +1,6 @@
 package com.seoul.gatherlive.biz.profile;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class MemberVO {
@@ -10,7 +11,7 @@ public class MemberVO {
 	private String user_name;
 	private String cell;
 	private String gender;
-	private String birth;
+	private Date birth;
 	private int open;
 	private String pref_genre;
 	private String pref_musician;
@@ -58,11 +59,15 @@ public class MemberVO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getBirth() {
+	public Date getBirth() {
 		return birth;
 	}
 	public void setBirth(String birth) {
-		this.birth = birth;
+		if(birth.length() == 0) {
+			this.birth = null;
+		} else {
+			this.birth = Date.valueOf(birth);			
+		}
 	}
 	public int getOpen() {
 		return open;
