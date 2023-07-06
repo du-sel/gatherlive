@@ -42,7 +42,7 @@ public class MemberDAO {
 	// member 테이블에 INSERT
 	public void insertMember(MemberVO vo) {
 		sqlSession.insert("profileMapping.insertMember", vo);
-		sqlSession.insert("profileMapping.insertMember", vo);
+		//sqlSession.insert("profileMapping.insertMember", vo);
 		// 두번 실행해서 롤백되는지 테스트 
 	}
 	

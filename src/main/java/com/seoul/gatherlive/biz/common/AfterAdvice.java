@@ -14,7 +14,7 @@ public class AfterAdvice {
 		
 	@After("allPointCut()")
 	public void finallyLog() {
-		System.out.println("[사후처리] AfterAdvice");
+		System.out.println("[사후처리] AfterAdvice - 박서울");
 	}
 	
 }

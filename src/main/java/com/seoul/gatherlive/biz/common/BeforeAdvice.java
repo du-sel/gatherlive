@@ -14,7 +14,7 @@ public class BeforeAdvice {
 		
 	@Before("allPointCut()")
 	public void beforeLog() {
-		System.out.println("[사전처리] BeforeAdvice");
+		System.out.println("[사전처리] BeforeAdvice - 박서울");
 	}
 	
 }

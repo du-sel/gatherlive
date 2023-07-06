@@ -3158,6 +3158,32 @@ main {
 
 
 
+
+#join_3 .prflPic_preview {
+	background: #f2efeb;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+#join_3 .prflPic_preview img {
+	width: 50px;
+}
+#join_3 input[type=file]::file-selector-button {
+	background: #fcdfd8;
+	border: none;
+	padding: 5px 10px;
+}
+#join_3 input[type=file]::file-selector-button:hover {
+	background: #ff4a60;
+	color: #fff;
+}
+
+
+
 #join_3 #btn_join_toNext {
 	width: 16rem;
 	height: 5rem;

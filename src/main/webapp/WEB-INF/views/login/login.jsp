@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 	
@@ -28,6 +30,16 @@
 		
 		<div class="inner">
 		
+			<!-- 언어선택 버튼 -->
+			<div>
+				<a href="/gatherlive/member/login.do?lang=en">
+						<spring:message code="message.language.en"/>
+				</a>&nbsp;&nbsp;
+				<a href="/gatherlive/member/login.do?lang=ko">
+						<spring:message code="message.language.ko"/>
+				</a>
+			</div>
+		
 		
 			<div class="flexbox">
 
@@ -38,17 +50,21 @@
 					
 					<div class="input">
 						<div class="email">
-							<p class="B">E-mail</p>
+<!-- 							<p class="B">E-mail</p> -->
+							<p class="B"><spring:message code="message.login.mail"/></p>
 							<input type="text" name="mail" size="25">
 						</div>
 						<div class="pw">
-							<p class="B">PW</p>
+<!-- 							<p class="B">PW</p> -->
+							<p class="B"><spring:message code="message.login.password"/></p>
 							<input type="password" name="password" size="25">
 						</div>
 					</div>
 						
-					<button id="btn_login" type="submit">로그인</button>
-					<a id="toJoin" href="05_join_1.jsp">아직 회원이 아니신가요?</a>
+<!-- 					<button id="btn_login" type="submit">로그인</button> -->
+					<button id="btn_login" type="submit"><spring:message code="message.login.login"/></button>
+<!-- 					<a id="toJoin" href="../join/email.do">아직 회원이 아니신가요?</a> -->
+					<a id="toJoin" href="../join/email.do"><spring:message code="message.login.join"/></a>
 					
 				</form>
 				

@@ -21,3 +21,10 @@ message.my.inst=악기
 message.my.level=실력
 message.my.time=기간
 
+#login.jsp
+message.login.mail=이메일
+message.login.password=비밀번호
+message.login.login=로그인
+message.login.join=아직 회원이 아니신가요?
+
+

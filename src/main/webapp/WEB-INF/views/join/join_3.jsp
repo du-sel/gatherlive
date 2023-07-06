@@ -207,6 +207,26 @@
 		return true;		
 		
 	}
+	
+	
+	
+    /* 썸네일 미리보기 */
+    function imgPreview(input) {
+	  if (input.files && input.files[0]) {
+	    var reader = new FileReader();
+	    reader.onload = function(e) {
+	      document.getElementById('prflPic_preview').style.backgroundImage = "url("+e.target.result+")";
+	      document.getElementById('prflPic_preview').style.backgroundSize = "cover";
+	      document.getElementById('prflPic_preview').style.backgroundColor = "transparent";
+	      document.getElementById('img_modify_white').style.display = "none";
+	    };
+	    reader.readAsDataURL(input.files[0]);
+	  } else {
+		  document.getElementById('prflPic_preview').style.backgroundImage = "none";
+	      document.getElementById('prflPic_preview').style.backgroundColor = "#f2efeb";
+	      document.getElementById('img_modify_white').style.display = "block";
+	  }
+	}
 
 
 </script>
@@ -235,7 +255,7 @@
 			</div>
 		
 		
-			<form name="join3" id="join3" action="../join/insertAccount.do" method="post">
+			<form name="join3" id="join3" action="../join/insertAccount.do" method="post" enctype="multipart/form-data">
 				<!-- <input type="hidden" name="cmd" value="join4"> -->
 
 				<section id="inst1" class="inst">
@@ -243,8 +263,6 @@
 					<h2>악기</h2>
 
 					<div class="input">
-						<!-- 잠깐 앞페이지 disabled 풀리는거 테스트좀 -->
-						<h4>${MEMBER.mail }</h4>
 						<p class="must">어떤 악기를 연주하시나요?</p>
 						<select name="instrument_g1_1" id="instrument_g1" class="instrument_g1" onload="getFirstInst(this.name)" onchange="getSecondInst(this.options[selectedIndex].value, this.name)">
 							<option value="">-- 선택 안 함 --</option>
@@ -364,7 +382,10 @@
 
 					<div class="input">
 						<p>프로필 사진</p>
-						<input type="file" accept="image/*" name="prflPic" style="width: 20rem;">
+						<div id="prflPic_preview" class="prflPic_preview">
+							<img id="img_modify_white" src="/resources/images/img-modify-white.svg">
+						</div>
+						<input type="file" accept="image/*" name="profile_image" style="width: 20rem;" onchange="imgPreview(this);">
 					</div>
 					
 					
@@ -700,6 +721,7 @@
 			});*/
 			
 			
+
 			
 			
 			

@@ -3,6 +3,8 @@ package com.seoul.gatherlive.biz.profile;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberVO {
 	
 	private int member_id;
@@ -12,6 +14,7 @@ public class MemberVO {
 	private String cell;
 	private String gender;
 	private Date birth;
+	private MultipartFile profile_image;
 	private int open;
 	private String pref_genre;
 	private String pref_musician;
@@ -68,6 +71,12 @@ public class MemberVO {
 		} else {
 			this.birth = Date.valueOf(birth);			
 		}
+	}
+	public MultipartFile getProfile_image() {
+		return profile_image;
+	}
+	public void setProfile_image(MultipartFile profile_image) {
+		this.profile_image = profile_image;
 	}
 	public int getOpen() {
 		return open;
