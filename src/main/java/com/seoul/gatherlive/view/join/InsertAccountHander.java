@@ -79,15 +79,14 @@ public class InsertAccountHander {
 			
 			if(!profile_image.isEmpty()) {
 				String filename = profile_image.getOriginalFilename();
-				System.out.println("filename :"+filename);
 				profile_image.transferTo(new File("C:\\Users\\1\\Desktop\\GatherLive\\profile_image\\"+filename));
 			}
 			
 			memberService.insertMember(member);			
 			
 		} catch(Exception e) {
-			e.printStackTrace();
-			//throw new Exception("중복된 이메일이 사용되었습니다");
+			//e.printStackTrace();
+			throw new Exception("중복된 이메일이 사용되었습니다");
 		}
 
 		MemberVO last = memberService.getMemberByMail(member);

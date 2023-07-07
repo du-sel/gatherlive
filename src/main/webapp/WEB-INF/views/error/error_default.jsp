@@ -4,9 +4,6 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-
-
-
 	<main id="error_default" class="error">
 		
 		<div class="inner">
@@ -29,13 +26,6 @@
 		</a>
 
 	</main>
-
-
-
-
-
-
-
 
 
 	<script src="/gatherlive/resources/js/gnav.js"></script>

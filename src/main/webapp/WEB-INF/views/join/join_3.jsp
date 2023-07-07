@@ -256,6 +256,7 @@
 		
 		
 			<form name="join3" id="join3" action="../join/insertAccount.do" method="post" enctype="multipart/form-data">
+			
 				<!-- <input type="hidden" name="cmd" value="join4"> -->
 
 				<section id="inst1" class="inst">

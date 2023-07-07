@@ -59,7 +59,7 @@ public class MemberDAO {
 	public void deleteMember(MemberVO vo) {
 		System.out.println("MemberDAO - deleteMember() 실행");
 		sqlSession.delete("profileMapping.deleteMemberInst", vo);
-		//sqlSession.delete("profileMapping.deleteMemberLoca", vo);
+		sqlSession.delete("profileMapping.deleteMemberLoca", vo);
 		// 참조테이블 막아두고 롤백되는지 확인하기
 		sqlSession.delete("profileMapping.deleteMember", vo);
 	}
