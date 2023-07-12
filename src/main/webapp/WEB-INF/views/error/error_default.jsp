@@ -10,6 +10,7 @@
 
 
 			<h2>페이지를 불러올 수 없습니다</h2>
+			<h6>desktop test</h6>
 
 			<%-- <h5>${exception }</h5> --%>
 			<h5>${exception.message }</h5>
